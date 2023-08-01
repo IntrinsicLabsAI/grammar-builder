@@ -21,7 +21,7 @@ export default function CodeEditor(
             <CodeMirror
                 indentWithTab={true}
                 value={value}
-                height='87vh'
+                height='84vh'
                 theme={nord}
                 extensions={[javascript({ typescript: true })]}
                 onChange={(value) => setValue(value)}/>

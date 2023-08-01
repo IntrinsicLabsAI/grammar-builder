@@ -19,7 +19,7 @@ export default function GrammerViewer(
             </div>
             <CodeMirror
                 value={value}
-                height='87vh'
+                height='84vh'
                 theme={nord}
                 editable={false}
             />
