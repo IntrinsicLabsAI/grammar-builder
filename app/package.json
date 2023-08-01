@@ -10,6 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.1.9",
+    "@heroicons/react": "^2.0.18",
+    "@uiw/codemirror-theme-material": "^4.21.9",
+    "@uiw/codemirror-theme-nord": "^4.21.9",
+    "@uiw/codemirror-theme-xcode": "^4.21.9",
+    "@uiw/react-codemirror": "^4.21.9",
+    "@uiw/react-textarea-code-editor": "^2.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -20,6 +27,7 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.14",
+    "daisyui": "^3.5.0",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
