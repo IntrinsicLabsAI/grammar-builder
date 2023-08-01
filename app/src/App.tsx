@@ -16,15 +16,16 @@ export default function App() {
   function menuBar() {
     return (
       <div className="navbar bg-neutral text-neutral-content">
-        <div className="flex-1 flex-row gap-3 pl-4">
+        <div className="flex-1 flex-row gap-3 pl-4 cursor-pointer">
           <img src={build} alt="Logo" className=" h-6 w-6 object-contain" />
           <p className="normal-case text-lg font-semibold">Grammar Builder</p>
         </div>
         <div className="flex-none mr-2">
-          <button 
+          <button
             onClick={() => generateGrammer(code)}
-            className="btn btn-sm btn-outline btn-info">
-              Generate
+            className="btn btn-sm btn-outline btn-info"
+          >
+            Generate
           </button>
         </div>
       </div>
