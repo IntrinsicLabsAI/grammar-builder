@@ -26,11 +26,11 @@ export default function App() {
   return (
     <div className="h-full w-full">
       {menuBar()}
-      <div className=" flex flex-row gap-5 mt-5 px-5 w-full">
-        <div className=" w-1/2 h-full">
+      <div className=" justify-center flex flex-row mt-5 gap-5 px-5">
+        <div className=" w-[700px] ">
           <CodeEditor value={code} setValue={setCode} />
         </div>
-        <div className=" w-1/2 h-full">
+        <div className=" w-[700px] ">
           <GrammerViewer value={grammer} />
         </div>
       </div>
