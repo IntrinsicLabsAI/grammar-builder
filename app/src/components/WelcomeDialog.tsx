@@ -63,7 +63,7 @@ export default function WelcomeDialog({
                       </div>
                       <div className="flex-1">
                         <p className=" text-primary font-semibold text-sm leading-tight">
-                          Generate updated grammar files locally using our <a href="https://github.com/IntrinsicLabsAI/gbnfgen" target="_blank" className="underline underline-offset-1">package</a>.
+                         Use the <a href="https://www.npmjs.com/package/@intrinsicai/gbnfgen" target="_blank" className="underline underline-offset-1"> NPM package </a> to do generation in your own project.
                         </p>
                       </div>
                     </div>
@@ -75,7 +75,7 @@ export default function WelcomeDialog({
                       </div>
                       <div className="flex-1">
                         <p className=" text-primary font-semibold text-sm leading-tight">
-                          Generated grammar files are Llama2 compatible.
+                          Generated grammar files are llama.cpp compatible.
                         </p>
                       </div>
                     </div>
