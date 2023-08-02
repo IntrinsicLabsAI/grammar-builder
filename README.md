@@ -1,5 +1,5 @@
 # grammar-builder
-Generates grammer files from typescript for LLM generation. This is a frontend application which exposes the generation Typescript library.
+Generates grammar files from typescript for LLM generation. This is a frontend application which exposes the generation Typescript library.
 
 ## Expanding the ESLint configuration
 

@@ -1,16 +1,33 @@
+import ts from "typescript";
 import { useState } from "react";
 // import { compile } from "@intrinsicai/gbnfgen";
 import CodeEditor from "./components/CodeEditor";
-import GrammerViewer from "./components/GrammerViewer";
+import GrammarViewer from "./components/GrammarViewer";
+import { compile, serializeGrammar } from "@intrinsicai/gbnfgen";
 
 import build from "./assets/build.png";
 
 export default function App() {
   const [code, setCode] = useState("");
-  const [grammer, setGrammer] = useState("");
+  const [grammar, setGrammar] = useState("");
 
-  const generateGrammer = (code: string) => {
-    setGrammer(code);
+  const generateGrammar = (code: string) => {
+    try {
+      const srcFile = ts.createSourceFile("source.ts", code, ts.ScriptTarget.ESNext);
+      const ifaces: Array<string> = [];
+      srcFile
+        .forEachChild(child => {
+          if (ts.isInterfaceDeclaration(child)) {
+            ifaces.push(child.name.getText(srcFile));
+          }
+        });
+      // NOTE: we assume that the first interface declared is meant to be the root. We should consider instead
+      // having a select dropdown populated using the values from the ifaces list above.
+      const grammar = compile(code, ifaces[0]);
+      setGrammar(serializeGrammar(grammar));
+    } catch (e) {
+      setGrammar(`${e}`);
+    }
   };
 
   function menuBar() {
@@ -22,7 +39,7 @@ export default function App() {
         </div>
         <div className="flex-none mr-2">
           <button
-            onClick={() => generateGrammer(code)}
+            onClick={() => generateGrammar(code)}
             className="btn btn-sm btn-outline btn-info"
           >
             Generate
@@ -40,7 +57,7 @@ export default function App() {
           <CodeEditor value={code} setValue={setCode} />
         </div>
         <div className=" w-[700px] ">
-          <GrammerViewer value={grammer} />
+          <GrammarViewer value={grammar} />
         </div>
       </div>
     </div>
