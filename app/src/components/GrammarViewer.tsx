@@ -43,7 +43,7 @@ export default function GrammarViewer(
             </div>
             <div className=' pb-2 '>
                 <p className=' text-sm '>
-                    This grammer can be used during LLMs generation.
+                    This grammar can be used during LLMs generation.
                 </p>
             </div>
             <CodeMirror
