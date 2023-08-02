@@ -1,9 +1,10 @@
 import ts from "typescript";
 import { useState } from "react";
-// import { compile } from "@intrinsicai/gbnfgen";
+
+import { compile, serializeGrammar } from "@intrinsicai/gbnfgen";
+
 import CodeEditor from "./components/CodeEditor";
 import GrammarViewer from "./components/GrammarViewer";
-import { compile, serializeGrammar } from "@intrinsicai/gbnfgen";
 
 import build from "./assets/build.png";
 

@@ -1,6 +1,6 @@
 import CodeMirror from '@uiw/react-codemirror';
 import { nord } from '@uiw/codemirror-theme-nord';
-import { CloudArrowDownIcon } from '@heroicons/react/24/outline';
+import { CloudArrowDownIcon, ClipboardIcon } from '@heroicons/react/24/outline';
 
 export default function GrammarViewer(
     {
@@ -15,9 +15,15 @@ export default function GrammarViewer(
                 <p className=' flex-1 font-semibold text-primary-content'>
                     Generated Grammar
                 </p>
-                <button className=' p-1 hover:bg-accent/80 rounded-md'>
-                    <CloudArrowDownIcon className=' cursor-pointer h-6 w-6 text-primary-content '/>
-                </button>
+                <div className='flex flex-row gap-2'>
+                    <button className=' p-1 hover:bg-accent/80 rounded-md' 
+                            onClick={() => navigator.clipboard.writeText(value)}>
+                        <ClipboardIcon className=' cursor-pointer h-6 w-6 text-primary-content '/>
+                    </button>
+                    <button className=' p-1 hover:bg-accent/80 rounded-md'>
+                        <CloudArrowDownIcon className=' cursor-pointer h-6 w-6 text-primary-content '/>
+                    </button>
+                </div>
             </div>
             <CodeMirror
                 value={value}
