@@ -18,10 +18,15 @@ export default function CodeEditor(
                     Type Definitions
                 </p>
             </div>
+            <div className=' pb-2 '>
+                <p className=' text-sm '>
+                    Define desired output types using Typescript.
+                </p>
+            </div>
             <CodeMirror
                 indentWithTab={true}
                 value={value}
-                height='84vh'
+                height='82vh'
                 theme={nord}
                 extensions={[javascript({ typescript: true })]}
                 onChange={(value) => setValue(value)}/>

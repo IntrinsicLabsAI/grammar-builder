@@ -25,9 +25,14 @@ export default function GrammarViewer(
                     </button>
                 </div>
             </div>
+            <div className=' pb-2 '>
+                <p className=' text-sm '>
+                    This grammer can be used during LLMs generation.
+                </p>
+            </div>
             <CodeMirror
                 value={value}
-                height='84vh'
+                height='82vh'
                 theme={nord}
                 editable={false}
             />

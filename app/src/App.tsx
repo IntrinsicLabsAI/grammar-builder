@@ -54,10 +54,10 @@ export default function App() {
     <div className="h-full w-full">
       {menuBar()}
       <div className=" justify-center flex flex-col md:flex-row my-5 gap-5 px-5">
-        <div className=" w-[700px] ">
+        <div className=" w-8/10 md:w-[700px] ">
           <CodeEditor value={code} setValue={setCode} />
         </div>
-        <div className=" w-[700px] ">
+        <div className=" w-8/10 md:w-[700px] ">
           <GrammarViewer value={grammar} />
         </div>
       </div>
