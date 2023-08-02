@@ -1,21 +1,9 @@
 # grammar-builder
-Generates grammar files from typescript for LLM generation. This is a frontend application which exposes the generation Typescript library.
 
-## Expanding the ESLint configuration
+## ✨ _Checkout the live demo at https://grammar.intrinsiclabs.ai_ ✨
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+React app that lets you generate llama.cpp-compatible grammar files from simple TypeScript interfaces.
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+* Uses [@intrinsicai/gbnfgen](https://github.com/intrinsiclabsai/gbnfgen/) under the hood for compilation from
+TypeScript to grammars
+* Built on top of [Vite](vitejs.dev) and [tailwindcss](https://tailwindcss.com/).
