@@ -9,6 +9,22 @@ export default function GrammarViewer(
         value: string
     }
 ) {
+    const generateFile = () => {
+        const file = new File([value], 'grammar.gbnf', {
+            type: 'text/plain',
+        })
+
+        const link = document.createElement('a')
+        const url = URL.createObjectURL(file)
+        link.href = url
+        link.download = file.name
+        document.body.appendChild(link)
+        link.click()
+      
+        document.body.removeChild(link)
+        window.URL.revokeObjectURL(url)
+    }
+
     return (
         <div className='px-4 py-4 rounded-md bg-[#2e3440]'>
             <div className=' flex flex-row items-center h-8'>
@@ -20,7 +36,8 @@ export default function GrammarViewer(
                             onClick={() => navigator.clipboard.writeText(value)}>
                         <ClipboardIcon className=' cursor-pointer h-6 w-6 text-primary-content '/>
                     </button>
-                    <button className=' p-1 hover:bg-accent/80 rounded-md'>
+                    <button className=' p-1 hover:bg-accent/80 rounded-md'
+                            onClick={() => generateFile()}>
                         <CloudArrowDownIcon className=' cursor-pointer h-6 w-6 text-primary-content '/>
                     </button>
                 </div>
