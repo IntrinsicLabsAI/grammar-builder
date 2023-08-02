@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.1.9",
+    "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
     "@intrinsicai/gbnfgen": "^0.3.0",
     "@uiw/codemirror-theme-material": "^4.21.9",

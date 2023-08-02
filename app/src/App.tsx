@@ -7,10 +7,12 @@ import CodeEditor from "./components/CodeEditor";
 import GrammarViewer from "./components/GrammarViewer";
 
 import build from "./assets/build.png";
+import WelcomeDialog from "./components/WelcomeDialog";
 
 export default function App() {
   const [code, setCode] = useState("");
   const [grammar, setGrammar] = useState("");
+  const [WelcomeDialogOpen, setWelcomeDialogOpen] = useState(true);
 
   const generateGrammar = (code: string) => {
     try {
@@ -53,6 +55,7 @@ export default function App() {
   return (
     <div className="h-full w-full">
       {menuBar()}
+      <WelcomeDialog open={WelcomeDialogOpen} setOpen={setWelcomeDialogOpen} />
       <div className=" justify-center flex flex-col md:flex-row my-5 gap-5 px-5">
         <div className=" w-8/10 md:w-[700px] ">
           <CodeEditor value={code} setValue={setCode} />
