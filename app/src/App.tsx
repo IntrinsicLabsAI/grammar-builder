@@ -9,8 +9,52 @@ import GrammarViewer from "./components/GrammarViewer";
 import build from "./assets/build.png";
 import WelcomeDialog from "./components/WelcomeDialog";
 
+const PLACEHOLDER_CODE = `
+interface CarAndOwner {
+  car: Car;
+  owner: Owner;
+}
+ 
+interface Car {
+  make: string;
+  model: string;
+  year: number;
+  colors: string[];
+  features: Features;
+}
+
+interface Owner {
+  firstName: string;
+  lastName: string;
+  age: number;
+}
+
+interface Features {
+  audio: AudioFeature;
+  safety: SafetyFeature;
+  performance: PerformanceFeature;
+}
+
+interface AudioFeature {
+  brand: string;
+  speakers: number;
+  hasBluetooth: boolean;
+}
+
+interface SafetyFeature {
+  airbags: number;
+  parkingSensors: number;
+  laneAssist: number;
+}
+
+interface PerformanceFeature {
+  engine: string;
+  horsepower: number;
+  topSpeed: number;
+}`.trimStart();
+
 export default function App() {
-  const [code, setCode] = useState("");
+  const [code, setCode] = useState(PLACEHOLDER_CODE);
   const [grammar, setGrammar] = useState("");
   const [WelcomeDialogOpen, setWelcomeDialogOpen] = useState(true);
 
