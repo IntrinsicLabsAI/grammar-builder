@@ -1,6 +1,13 @@
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
-import { nord } from '@uiw/codemirror-theme-nord';
+import { nordInit } from '@uiw/codemirror-theme-nord';
+
+const theme = nordInit({
+    settings: {
+        selection: "#4833b0",
+    }
+});
+
 
 export default function CodeEditor(
     {
@@ -27,7 +34,7 @@ export default function CodeEditor(
                 indentWithTab={true}
                 value={value}
                 height='82vh'
-                theme={nord}
+                theme={theme}
                 extensions={[javascript({ typescript: true })]}
                 onChange={(value) => setValue(value)}/>
         </div>

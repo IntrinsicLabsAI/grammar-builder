@@ -58,22 +58,25 @@ export default function App() {
   const [grammar, setGrammar] = useState("");
   const [WelcomeDialogOpen, setWelcomeDialogOpen] = useState(true);
 
-  const generateGrammar = (code: string) => {
+  const generateGrammar = async (code: string) => {
     try {
-      const srcFile = ts.createSourceFile("source.ts", code, ts.ScriptTarget.ESNext);
+      const srcFile = ts.createSourceFile(
+        "source.ts",
+        code,
+        ts.ScriptTarget.ESNext
+      );
       const ifaces: Array<string> = [];
-      srcFile
-        .forEachChild(child => {
-          if (ts.isInterfaceDeclaration(child)) {
-            ifaces.push(child.name.getText(srcFile));
-          }
-        });
+      srcFile.forEachChild((child) => {
+        if (ts.isInterfaceDeclaration(child)) {
+          ifaces.push(child.name.getText(srcFile));
+        }
+      });
       // NOTE: we assume that the first interface declared is meant to be the root. We should consider instead
       // having a select dropdown populated using the values from the ifaces list above.
-      const grammar = compile(code, ifaces[0]);
+      const grammar = await compile(code, ifaces[0]);
       setGrammar(serializeGrammar(grammar));
     } catch (e) {
-      setGrammar(`${e}`);
+      setGrammar(`Compilation error encountered: ${e}`);
     }
   };
 
@@ -81,8 +84,14 @@ export default function App() {
     return (
       <div className="navbar bg-neutral text-neutral-content">
         <div className="flex-1 flex-row gap-3 pl-4">
-          <img src={build} alt="Logo" className=" h-6 w-6 object-contain cursor-pointer" />
-          <p className="normal-case text-lg font-semibold cursor-pointer">Grammar Builder</p>
+          <img
+            src={build}
+            alt="Logo"
+            className=" h-6 w-6 object-contain cursor-pointer"
+          />
+          <p className="normal-case text-lg font-semibold cursor-pointer">
+            Grammar Builder
+          </p>
         </div>
         <div className="flex-none mr-2">
           <button
